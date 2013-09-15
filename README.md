@@ -1,4 +1,4 @@
-String-Tokenizer-Class
+String Tokenizer Class
 ======================
 
 # Problem 
