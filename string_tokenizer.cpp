@@ -1,9 +1,21 @@
 #include <string>
 #include <iostream>
+
 using namespace std;
+
 // String tokenizer class.
 class StringTokenizer
 {
+    
+private:
+    StringTokenizer( ) {};
+    string delim_;
+    string str_;
+    int count_;
+    int begin_;
+    int end_;
+    
+    
 public:
     StringTokenizer(const string& s, const char* delim = NULL) :
         str_(s), count_(-1), begin_(0), end_(0)
@@ -54,27 +66,26 @@ public:
             begin_ = str_.find_first_not_of(delim_, end_);
         }
     }
-private:
-    StringTokenizer( ) {};
-    string delim_;
-    string str_;
-    int count_;
-    int begin_;
-    int end_;
+
 };
 
 int main( )
 {
-    string s = " razzle : dazzle : giddyup ";
+    string s = "the : quick : brown : fox : jumps : over : the : lazy : dog";
+    
     const char* delim = new char(':');
+    
     string tmp;
     
     StringTokenizer st(s, delim);
+    
     cout << "there are " << st.countTokens( ) << " tokens.\n";
     
     while (st.hasMoreTokens( ))
     {
+        
         st.nextToken(tmp);
+        
         cout << "token = " << tmp << '\n';
     }
     
